@@ -35,6 +35,9 @@ Route::get('/createBlog', [userBlogs::class, 'createBlogs'])->name('blogs.create
 Route::post('/createBlog', [userBlogs::class, 'createBlogsSubmitted'])->name('blogs.createBlog')->middleware('verifyUser');
 
 Route::get('/viewBlog', [userBlogs::class, 'viewBlog'])->name('blogs.viewBlog')->middleware('verifyUser');
+Route::get('/viewMyBlog', [userBlogs::class, 'viewMyBlog'])->name('blogs.viewMyBlog')->middleware('verifyUser');
 
 Route::get('/commentOnBlog/{id}', [userBlogs::class, 'commentOnBlog'])->name('blogs.commentOnBlog')->middleware('verifyUser');
 Route::post('/commentOnBlog', [userBlogs::class, 'commentOnBlogSubmitted'])->name('blogs.commentOnBlog')->middleware('verifyUser');
+
+Route::get('/deleteMyBlog/{id}', [userBlogs::class, 'deleteMyBlog'])->name('blogs.deleteMyBlog')->middleware('verifyUser');

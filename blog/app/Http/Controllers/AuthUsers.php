@@ -16,6 +16,7 @@ class AuthUsers extends Controller
     {
         $users = users::where('id', session()->get('id'))->first();
         return view('users.profile')->with('users', $users);
+        //dd(session()->get('id'));
     }
 
     public function userEdit(Request $request)

@@ -8,7 +8,7 @@
         <br>
         
             <div class="container" style="width:60%; background-color: orange; ">
-                <form method="post" action= "{{route('blogs.createBlog')}}">
+                <form method="post" action= "{{route('blogs.createBlog')}}" enctype="multipart/form-data">
                     {{csrf_field()}}    
                     <h2 style="text-align:center; color: white">Create a Blog</h2>
                     <br>
@@ -42,7 +42,17 @@
                         @enderror
                     </div>
                     <br>
-                    <div class="form-group row" hidden>
+                    <div class="form-group row">
+                        <label for="image" class="col-sm-2 col-form-label" style="color: white">Image:</label>
+                        <div class="col-sm-10">
+                        <input type="file" name="img" id="img"class="form-control" style="width:80%">
+                        </div>
+                        @error('img')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <br>
+                    <div class="form-group row" >
                         <label for="usersid" class="col-sm-2 col-form-label" style="color: white">id:</label>
                         <div class="col-sm-10">
                         <input type="text" name="usersid" id="usersid"class="form-control"  value="{{$users->id}}" style="width:20%" readonly>

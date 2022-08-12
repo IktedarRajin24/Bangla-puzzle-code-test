@@ -27,6 +27,10 @@
                     </div>
                     <br>
                     <div class="form-group" style="text-align:center">
+                        <a style=" color: black; font-size:20px; text-decoration: none" class="fa" class="btn" href="{{route('blogs.viewMyBlog')}}">My blogs</a>
+                    </div>
+                    <br>
+                    <div class="form-group" style="text-align:center">
                         <a style=" color: black; font-size:20px; text-decoration: none" class="fa" class="btn" href="{{route('logout')}}">Logout</a>
                     </div>
                 </form>

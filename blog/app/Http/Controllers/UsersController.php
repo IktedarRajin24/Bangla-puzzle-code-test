@@ -28,13 +28,14 @@ class UsersController extends Controller
             'email.max'=>'E-mail can not be greater than 50 charcters',
             'password.required'=> 'Please put a password'
         ]);
-        $users = users::where('email',$request->email)
-                            ->where('password',$request->password)
+        $users = users::where('Email',$request->email)
+                            ->where('Password',$request->password)
                             ->first();
         if($users){
             $request->session()->put('usersName',$users->Name);
             $request->session()->put('id',$users->id);
             return redirect()-> route('users.dashboard')->with('users', $users);
+            //dd(session()->get('id'));
         }
         return back();
     }
@@ -59,10 +60,11 @@ class UsersController extends Controller
             'password.required'=> 'Please put a password'
         ]);
         $users = new users();
-        $users->name = $request->name;
-        $users->email = $request->email;
-        $users->password = $request->password;
+        $users->Name = $request->name;
+        $users->Email = $request->email;
+        $users->Password = $request->password;
         $users->save();
+        return redirect()->route('login');
     }
 
     public function logout()
