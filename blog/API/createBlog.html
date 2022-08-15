@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <div class="createPart">
+        <legend > Create Blog </legend>  
+          <div >
+            <form method="POST" action="http://127.0.0.1:8000/api/createBlog">
+              
+                <div class="mb-6">
+                  <label for="formGroupExampleInput" class="form-label"> Title :</label>
+                  <input type="text" name="title" class="form-control" id="formGroupExampleInput" >
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Slug :</label>
+                    <input type="text" name="slug" class="form-control" id="formGroupExampleInput" >
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Description :</label>
+                    <input type="text" name="description" class="form-control" id="formGroupExampleInput" >
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">Image :</label>
+                    <input type="text" name="image" class="form-control" id="formGroupExampleInput" >
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label" style="margin-top: 20px">User ID :</label>
+                    <input type="text" name="userID" class="form-control" id="formGroupExampleInput" >
+                    
+                </div>
+                
+                <input type="submit" name="submit" value="Post" class="btn btn-primary login_button">
+            </form>  
+          </div>
+          
+      </div>
+</body>
+</html>
