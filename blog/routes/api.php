@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/blogs/viewBlog',[userBlogControllerAPI::class,'viewBlog']);
 Route::post('/createBlog', [userBlogControllerAPI::class, 'createBlog']);
+Route::delete('/deleteBlog/{id}', [userBlogControllerAPI::class, 'deleteBlog']);
+Route::put('/updateBlog/{id}', [userBlogControllerAPI::class, 'updateBlog']);

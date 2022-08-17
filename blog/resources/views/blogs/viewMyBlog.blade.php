@@ -19,6 +19,10 @@
                   </div>
                   <br>
                   <div class="form-group" style="text-align:center">
+                    <a style=" font-size:20px; text-decoration: none; float: left" class="btn btn-warning" href="updateMyBlog/{{$blog->id}}">Edit</a>
+                  </div>
+                  <br>
+                  <div class="form-group" style="text-align:center">
                     <a style=" font-size:20px; text-decoration: none; float: left" class="btn btn-danger" href="deleteMyBlog/{{$blog->id}}">Delete Blog</a>
                   </div>
                   <br>

@@ -25,4 +25,34 @@ class userBlogControllerAPI extends Controller
 
         return response()->json('Blog Created');
     }
+
+    public function deleteBlog(Request $request, $id)
+    {
+        $blogs = blogs::findOrFail($id);
+        if($blogs)
+        {
+            $blogs->delete();
+            return response()->json('Blog deleted');
+        }
+    }
+
+    public function updateBlog(Request $request, $id)
+    {
+        $blogs = blogs::find($id);
+        if($blogs)
+        {
+            $blogs->title = $request->title;
+            $blogs->slug = $request->slug; 
+            $blogs->description = $request->description;
+            $blogs->image = $request->image;
+            $blogs->userID = $request->userID;
+            $blogs->save();
+            return response()->json('Blog updated');
+        }
+        else
+        {
+            return response()->json('Blog not found');
+        }
+    }
+
 }

@@ -81,5 +81,29 @@ class userBlogs extends Controller
         return redirect()->route('blogs.viewMyBlog');
     }
 
+    public function updateMyBlog(Request $request)
+    {
+        $users = users::where('id', session()->get('id'))->first();
+        $blogs = blogs::where('id', $request->id)->first();
+        return view('blogs.updateMyBlog')->with('users', $users)->with('blogs', $blogs);
+    }
+
+    public function updateMyBlogSubmitted(Request $request)
+    {
+        
+        $imageName = time() . '-' . $request->title . '.' . $request->img->extension();
+        $request->img->move(public_path('images'), $imageName);
+
+
+        $blogs = blogs::where('id', $request->id)->first();
+        $blogs->title = $request->title;
+        $blogs->slug = Str::slug($request->slug); 
+        $blogs->description = $request->description;
+        $blogs->image = $imageName;
+        $blogs->userID = $request->usersid;
+        $blogs->save();
+        return redirect()->route('blogs.viewMyBlog');
+    }
+
     
 }
